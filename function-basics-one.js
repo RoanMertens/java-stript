@@ -8,11 +8,9 @@
 
 const todo = ['dishes', 'laundry', 'sleep', 'comedy night']
 
-
 function displayTodos() {
   console.log('My Todo list:', todo)
 }
-
 
 function addTodos(task) {
   todo.push(task)
@@ -22,8 +20,13 @@ function changeTodos(newValue, position) {
   todo[position] = newValue
 }
 
-// addTodos("dance")
+function deleteTodos(position) {
+  console.log( todo[position] + ' is now removed from the todo list.')
+  todo.splice(position, 1)
+}
 
+// addTodos("dance")
 // changeTodos('buy detergent', 1)
+deleteTodos(2)
 
 displayTodos()
