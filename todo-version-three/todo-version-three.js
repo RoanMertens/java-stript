@@ -50,23 +50,25 @@ const todoList = {
   }
 }
 
+const displayTodosButton = document.getElementById('displayTodosButton')
+displayTodosButton.addEventListener('click', function() {
+  todoList.displayTodos()
+})
+
+const toggleAllTodosButton = document.getElementById('toggleAllTodosButton')
+// todoList.addTodo('groceries')
+// todoList.addTodo('vacuuming')
+// todoList.addTodo('dishes')
+// todoList.toggleCompleted(0)
+// // todoList.toggleCompleted(1)
+// todoList.toggleCompleted(2)
+// todoList.displayTodos()
 
 
-
-
-todoList.addTodo('groceries')
-todoList.addTodo('vacuuming')
-todoList.addTodo('dishes')
-todoList.toggleCompleted(0)
-// todoList.toggleCompleted(1)
-todoList.toggleCompleted(2)
-todoList.displayTodos()
-
-
-todoList.toggleAll()
-// todoList.changeTodo(2, 'dancing')
-// todoList.toggleCompleted(1)
-// todoList.deleteTodo(0)
-todoList.displayTodos()
+// todoList.toggleAll()
+// // todoList.changeTodo(2, 'dancing')
+// // todoList.toggleCompleted(1)
+// // todoList.deleteTodo(0)
+// todoList.displayTodos()
 
 
