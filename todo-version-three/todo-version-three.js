@@ -59,9 +59,6 @@ const handlers = {
   displayTodos: function(){
     todoList.displayTodos()
   },
-  toggleAll: function(){
-    todoList.toggleAll()
-  },
   addTodo: function() {
     const addTodoTextInput = document.getElementById('addTodoTextInput')
     todoList.addTodo(addTodoTextInput.value)
@@ -73,22 +70,19 @@ const handlers = {
     todoList.changeTodo(changeTodoLocation.valueAsNumber - 1, changeTodoTextInput.value)
     changeTodoTextInput.value = ''
     changeTodoLocation.value = ''
+  },
+  toggleCompleted: function() {
+    const toggleCompletedLocation = document.getElementById('toggleCompletedLocation')
+    todoList.toggleCompleted(toggleCompletedLocation.valueAsNumber - 1)
+    toggleCompletedLocation.value = ''
+  },
+  deleteTodo: function() {
+    const deleteTodoLocation = document.getElementById('deleteTodoLocation')
+    todoList.deleteTodo(deleteTodoLocation.valueAsNumber - 1)
+    deleteTodoLocation.value = ''
+  },
+  toggleAll: function(){
+    todoList.toggleAll()
   }
 }
-
-// todoList.addTodo('groceries')
-// todoList.addTodo('vacuuming')
-// todoList.addTodo('dishes')
-// todoList.toggleCompleted(0)
-// // todoList.toggleCompleted(1)
-// todoList.toggleCompleted(2)
-// todoList.displayTodos()
-
-
-// todoList.toggleAll()
-// // todoList.changeTodo(2, 'dancing')
-// // todoList.toggleCompleted(1)
-// // todoList.deleteTodo(0)
-// todoList.displayTodos()
-
 
