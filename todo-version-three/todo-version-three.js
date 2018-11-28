@@ -6,8 +6,11 @@ const todoList = {
     } else {
       for (i = 0; i < this.todos.length; i++) {
         const todo = this.todos[i]
-        console.log('Item ' + (i + 1) + ' is:', todo.todoText)
-        console.log('Is this item completed:', todo.completed)
+        if (todo.completed == true) {
+          console.log(i + 1 + '.', '(x)', todo.todoText)
+        } else {
+          console.log(i + 1 + '.', '( )', todo.todoText)
+        }
       }
     }
   },
@@ -31,12 +34,12 @@ const todoList = {
 
 
 
-// todoList.addTodo('item 1')
-// todoList.addTodo('item 5')
-// todoList.addTodo('item 3')
-// todoList.changeTodo(0, 'item 4')
-// todoList.toggleCompleted(1)
-// todoList.deleteTodo(0)
+todoList.addTodo('groceries')
+todoList.addTodo('vacuuming')
+todoList.addTodo('dishes')
+todoList.changeTodo(2, 'dancing')
+todoList.toggleCompleted(1)
+todoList.deleteTodo(0)
 todoList.displayTodos()
 
 
