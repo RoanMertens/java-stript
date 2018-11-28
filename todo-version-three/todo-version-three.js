@@ -29,17 +29,44 @@ const todoList = {
   },
   deleteTodo: function(location) {
     this.todos.splice(location, 1)
+  },
+  toggleAll: function() {
+    let counter = 0
+    for (i = 0; i < this.todos.length; i++) {
+      const todo = this.todos[i]
+      if (todo.completed === true) {
+        counter += 1
+      }
+    }
+    if (this.todos.length === counter) {
+      for (i = 0; i < this.todos.length; i++) {
+        this.todos[i].completed = false
+      }
+    } else {
+      for (i = 0; i < this.todos.length; i++) {
+        this.todos[i].completed = true
+      }
+    }
   }
 }
+
+
 
 
 
 todoList.addTodo('groceries')
 todoList.addTodo('vacuuming')
 todoList.addTodo('dishes')
-todoList.changeTodo(2, 'dancing')
-todoList.toggleCompleted(1)
-todoList.deleteTodo(0)
+todoList.toggleCompleted(0)
+// todoList.toggleCompleted(1)
+todoList.toggleCompleted(2)
+todoList.displayTodos()
+
+
+todoList.toggleAll()
+// todoList.changeTodo(2, 'dancing')
+// todoList.toggleCompleted(1)
+// todoList.deleteTodo(0)
 todoList.displayTodos()
 
 
