@@ -2,7 +2,7 @@ const todoList = {
   todos: [],
   displayTodos: function() {
     if (this.todos.length === 0) {
-      console.log('Your todo list is empty!')
+      console.log('Your to do list is empty!')
     } else {
       for (i = 0; i < this.todos.length; i++) {
         const todo = this.todos[i]
@@ -65,6 +65,14 @@ const handlers = {
   addTodo: function() {
     const addTodoTextInput = document.getElementById('addTodoTextInput')
     todoList.addTodo(addTodoTextInput.value)
+    addTodoTextInput.value = ''
+  },
+  changeTodo: function() {
+    const changeTodoTextInput = document.getElementById('changeTodoTextInput')
+    const changeTodoLocation = document.getElementById('changeTodoLocation')
+    todoList.changeTodo(changeTodoLocation.valueAsNumber - 1, changeTodoTextInput.value)
+    changeTodoTextInput.value = ''
+    changeTodoLocation.value = ''
   }
 }
 
