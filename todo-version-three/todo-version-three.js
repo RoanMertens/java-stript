@@ -1,7 +1,11 @@
 const todoList = {
   todos: [],
   displayTodos: function() {
-    console.log('My Todos: ', this.todos)
+    for (i = 0; i < this.todos.length; i++) {
+      const todo = this.todos[i]
+      console.log('Item ' + (i + 1) + ' is:', todo.todoText)
+      console.log('Is this item completed:', todo.completed)
+    }
   },
   addTodo: function(todoText) {
     this.todos.push({
@@ -21,9 +25,13 @@ const todoList = {
   }
 }
 
-// todoList.addTodo('item 1')
+
+
+todoList.addTodo('item 1')
+todoList.addTodo('item 5')
+todoList.addTodo('item 3')
 // todoList.changeTodo(0, 'item 4')
-// todoList.toggleCompleted(0)
+todoList.toggleCompleted(1)
 // todoList.deleteTodo(0)
 todoList.displayTodos()
 
