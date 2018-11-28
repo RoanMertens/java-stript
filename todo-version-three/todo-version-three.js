@@ -56,6 +56,9 @@ displayTodosButton.addEventListener('click', function() {
 })
 
 const toggleAllTodosButton = document.getElementById('toggleAllTodosButton')
+toggleAllTodosButton.addEventListener('click', function() {
+  todoList.toggleAll()
+})
 // todoList.addTodo('groceries')
 // todoList.addTodo('vacuuming')
 // todoList.addTodo('dishes')
