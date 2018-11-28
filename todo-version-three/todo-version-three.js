@@ -19,16 +19,20 @@ const todoList = {
       todoText: todoText,
       completed: false
     })
+    this.displayTodos()
   },
   changeTodo: function(location, todoText) {
     this.todos[location].todoText = todoText
+    this.displayTodos()
   },
   toggleCompleted: function(location) {
     const todo = this.todos[location]
     todo.completed = !todo.completed
+    this.displayTodos()
   },
   deleteTodo: function(location) {
     this.todos.splice(location, 1)
+    this.displayTodos()
   },
   toggleAll: function() {
     let counter = 0
@@ -47,6 +51,7 @@ const todoList = {
         this.todos[i].completed = true
       }
     }
+    this.displayTodos()
   }
 }
 
@@ -57,6 +62,10 @@ const handlers = {
   toggleAll: function(){
     todoList.toggleAll()
   },
+  addTodo: function() {
+    const addTodoTextInput = document.getElementById('addTodoTextInput')
+    todoList.addTodo(addTodoTextInput.value)
+  }
 }
 
 // todoList.addTodo('groceries')
