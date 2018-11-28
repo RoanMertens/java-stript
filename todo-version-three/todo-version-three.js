@@ -50,15 +50,15 @@ const todoList = {
   }
 }
 
-const displayTodosButton = document.getElementById('displayTodosButton')
-displayTodosButton.addEventListener('click', function() {
-  todoList.displayTodos()
-})
+const handlers = {
+  displayTodos: function(){
+    todoList.displayTodos()
+  },
+  toggleAll: function(){
+    todoList.toggleAll()
+  },
+}
 
-const toggleAllTodosButton = document.getElementById('toggleAllTodosButton')
-toggleAllTodosButton.addEventListener('click', function() {
-  todoList.toggleAll()
-})
 // todoList.addTodo('groceries')
 // todoList.addTodo('vacuuming')
 // todoList.addTodo('dishes')
