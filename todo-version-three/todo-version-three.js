@@ -1,38 +1,24 @@
 const todoList = {
   todos: [],
-  displayTodos: function() {
-    if (this.todos.length === 0) {
-      console.log('Your to do list is empty!')
-    } else {
-      for (i = 0; i < this.todos.length; i++) {
-        const todo = this.todos[i]
-        if (todo.completed == true) {
-          console.log(i + 1 + '.', '(x)', todo.todoText)
-        } else {
-          console.log(i + 1 + '.', '( )', todo.todoText)
-        }
-      }
-    }
-  },
   addTodo: function(todoText) {
     this.todos.push({
       todoText: todoText,
       completed: false
     })
-    this.displayTodos()
+    view.displayTodos()
   },
   changeTodo: function(location, todoText) {
     this.todos[location].todoText = todoText
-    this.displayTodos()
+    view.displayTodos()
   },
   toggleCompleted: function(location) {
     const todo = this.todos[location]
     todo.completed = !todo.completed
-    this.displayTodos()
+    view.displayTodos()
   },
   deleteTodo: function(location) {
     this.todos.splice(location, 1)
-    this.displayTodos()
+    view.displayTodos()
   },
   toggleAll: function() {
     let counter = 0
@@ -51,14 +37,11 @@ const todoList = {
         this.todos[i].completed = true
       }
     }
-    this.displayTodos()
+    view.displayTodos()
   }
 }
 
 const handlers = {
-  displayTodos: function(){
-    todoList.displayTodos()
-  },
   addTodo: function() {
     const addTodoTextInput = document.getElementById('addTodoTextInput')
     todoList.addTodo(addTodoTextInput.value)
@@ -86,3 +69,25 @@ const handlers = {
   }
 }
 
+const view = {
+  displayTodos: function(){
+    const todosId = document.getElementById('todoList')
+    todosId.innerHTML = ''
+    if (todoList.todos.length === 0) {
+      const emptyMessage = document.createElement('li')
+      emptyMessage.textContent = 'Your to do list is empty!'
+      todosId.appendChild(emptyMessage)
+    } else {
+      for (let i = 0; i < todoList.todos.length; i++) {
+        const todoLi = document.createElement('li')
+        const todo = todoList.todos[i]
+        if (todo.completed == true) {
+          todoLi.textContent = i + 1 + '. (x) ' + todo.todoText
+        } else {
+          todoLi.textContent = i + 1 + '. ( ) ' + todo.todoText
+        }
+        todosId.appendChild(todoLi)
+      }
+    }
+  }
+}
