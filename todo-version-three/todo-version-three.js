@@ -99,16 +99,28 @@ const view = {
       emptyMessage.textContent = 'Your to do list is empty!'
       todosId.appendChild(emptyMessage)
     } else {
-      for (let i = 0; i < todoList.todos.length; i++) {
+
+      // changed all for loops into forEach methods
+
+      // for (let i = 0; i < todoList.todos.length; i++) {
+      //   const todoLi = document.createElement('li')
+      //   const todo = todoList.todos[i]
+      //   if (todo.completed == true) {
+      //     todoLi.textContent = i + 1 + '. (x) ' + todo.todoText
+      //   } else {
+      //     todoLi.textContent = i + 1 + '. ( ) ' + todo.todoText
+      //   }
+      //   todosId.appendChild(todoLi)
+      // }
+      todoList.todos.forEach(function(todo) {
         const todoLi = document.createElement('li')
-        const todo = todoList.todos[i]
         if (todo.completed == true) {
-          todoLi.textContent = i + 1 + '. (x) ' + todo.todoText
+          todoLi.textContent = '(x) ' + todo.todoText
         } else {
-          todoLi.textContent = i + 1 + '. ( ) ' + todo.todoText
+          todoLi.textContent = '( ) ' + todo.todoText
         }
         todosId.appendChild(todoLi)
-      }
+      })
     }
   }
 }
