@@ -1,3 +1,4 @@
+// todolist object. does every change in the todos list.
 const todoList = {
   todos: [],
   addTodo: function(todoText) {
@@ -41,6 +42,7 @@ const todoList = {
   }
 }
 
+// handles all the events and gives them to the right methods in the todos object
 const handlers = {
   addTodo: function() {
     const addTodoTextInput = document.getElementById('addTodoTextInput')
@@ -69,6 +71,7 @@ const handlers = {
   }
 }
 
+// handles all the output that is visible for the user.
 const view = {
   displayTodos: function(){
     const todosId = document.getElementById('todoList')
