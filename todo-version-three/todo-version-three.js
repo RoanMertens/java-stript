@@ -22,24 +22,42 @@ const todoList = {
     view.displayTodos()
   },
   toggleAll: function() {
+
+    // changed all for loops into forEach methods
+
+    // let counter = 0
+    // for (i = 0; i < this.todos.length; i++) {
+    //   const todo = this.todos[i]
+    //   if (todo.completed === true) {
+    //     counter += 1
+    //   }
+    // }
+    // if (this.todos.length === counter) {
+    //   for (i = 0; i < this.todos.length; i++) {
+    //     this.todos[i].completed = false
+    //   }
+    // } else {
+    //   for (i = 0; i < this.todos.length; i++) {
+    //     this.todos[i].completed = true
+    //   }
+    // }
     let counter = 0
-    for (i = 0; i < this.todos.length; i++) {
-      const todo = this.todos[i]
+    this.todos.forEach(function(todo) {
       if (todo.completed === true) {
         counter += 1
       }
-    }
+    })
     if (this.todos.length === counter) {
-      for (i = 0; i < this.todos.length; i++) {
-        this.todos[i].completed = false
-      }
+      this.todos.forEach(function(todo) {
+        todo.completed = false
+      })
     } else {
-      for (i = 0; i < this.todos.length; i++) {
-        this.todos[i].completed = true
-      }
+      this.todos.forEach(function(todo) {
+        todo.completed = true
+      })
     }
     view.displayTodos()
-  }
+  },
 }
 
 // handles all the events and gives them to the right methods in the todos object
