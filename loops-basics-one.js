@@ -11,6 +11,14 @@
 // }
 
 testArray = ['item 1', 'item 5', 'item 9', 'item 12']
-for (let counter = 0; counter <m testArray.length; counter++) {
-  console.log('Item number ' + (counter + 1) + ' is:', testArray[counter])
+for (let c = testArray.length; c > 0; c--) {
+  console.log(testArray[c - 1])
 }
+
+// forEach method on the array testArray does the function logName
+// for each element in the array
+function logName(name) {
+  console.log(name)
+}
+
+testArray.reverse().forEach(logName)
