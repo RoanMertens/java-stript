@@ -55,10 +55,8 @@ const handlers = {
     changeTodoTextInput.value = ''
     changeTodoLocation.value = ''
   },
-  toggleCompleted: function() {
-    const toggleCompletedLocation = document.getElementById('toggleCompletedLocation')
-    todoList.toggleCompleted(toggleCompletedLocation.valueAsNumber - 1)
-    toggleCompletedLocation.value = ''
+  toggleCompleted: function(index) {
+    todoList.toggleCompleted(index)
   },
   deleteTodo: function(index) {
     todoList.deleteTodo(index)
@@ -86,9 +84,10 @@ const view = {
           todoLi.textContent = '( ) ' + todo.todoText
         }
         todoLi.id = i
-        todoLi.appendChild(view.createDeleteButton())
+        todoLi.appendChild(this.createDeleteButton())
+        todoLi.appendChild(this.createCompleteButton())
         todosId.appendChild(todoLi)
-      })
+      }, this)
     }
   },
   createDeleteButton: function() {
@@ -97,12 +96,20 @@ const view = {
     deleteButton.className = 'deleteButton'
     return deleteButton
   },
+  createCompleteButton: function() {
+    var completeButton = document.createElement('button')
+    completeButton.textContent = 'Toggle completed'
+    completeButton.className = 'completeButton'
+    return completeButton
+  },
   setupEventListeners: function() {
     todoUl = document.getElementById('todoList')
     todoUl.addEventListener('click', function(event) {
       const elementClicked = event.target
       if (elementClicked.className === 'deleteButton') {
         handlers.deleteTodo(parseInt(elementClicked.parentNode.id))
+      } else if (elementClicked.className === 'completeButton') {
+        handlers.toggleCompleted(parseInt(elementClicked.parentNode.id))
       }
     })
   }
