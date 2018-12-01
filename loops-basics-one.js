@@ -22,3 +22,6 @@ function logName(name) {
 }
 
 testArray.reverse().forEach(logName)
+
+// for loop gives you the index
+// forEach method gives you the element in the array
