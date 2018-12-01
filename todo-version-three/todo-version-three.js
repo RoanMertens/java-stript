@@ -96,16 +96,18 @@ const view = {
     deleteButton.textContent = 'Delete'
     deleteButton.className = 'deleteButton'
     return deleteButton
+  },
+  setupEventListeners: function() {
+    todoUl = document.getElementById('todoList')
+    todoUl.addEventListener('click', function(event) {
+      const elementClicked = event.target
+      if (elementClicked.className === 'deleteButton') {
+        handlers.deleteTodo(parseInt(elementClicked.parentNode.id))
+      }
+    })
   }
 }
 
-todoUl = document.getElementById('todoList')
-todoUl.addEventListener('click', function(event) {
-  const elementClicked = event.target
-
-  if (elementClicked.className === 'deleteButton') {
-    handlers.deleteTodo(parseInt(elementClicked.parentNode.id))
-  }
-})
+view.setupEventListeners()
 
 
