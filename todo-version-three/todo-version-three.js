@@ -80,13 +80,14 @@ const view = {
       emptyMessage.textContent = 'Your to do list is empty!'
       todosId.appendChild(emptyMessage)
     } else {
-      todoList.todos.forEach(function(todo) {
+      todoList.todos.forEach(function(todo, i) {
         let todoLi = document.createElement('li')
         if (todo.completed == true) {
           todoLi.textContent = '(x) ' + todo.todoText
         } else {
           todoLi.textContent = '( ) ' + todo.todoText
         }
+        todoLi.id = 'deleteButton ' + i
         todoLi.appendChild(view.createDeleteButton())
         todosId.appendChild(todoLi)
       })
