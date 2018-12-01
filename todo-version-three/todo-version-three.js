@@ -60,10 +60,8 @@ const handlers = {
     todoList.toggleCompleted(toggleCompletedLocation.valueAsNumber - 1)
     toggleCompletedLocation.value = ''
   },
-  deleteTodo: function() {
-    const deleteTodoLocation = document.getElementById('deleteTodoLocation')
-    todoList.deleteTodo(deleteTodoLocation.valueAsNumber - 1)
-    deleteTodoLocation.value = ''
+  deleteTodo: function(index) {
+    todoList.deleteTodo(index)
   },
   toggleAll: function(){
     todoList.toggleAll()
@@ -87,7 +85,7 @@ const view = {
         } else {
           todoLi.textContent = '( ) ' + todo.todoText
         }
-        todoLi.id = 'deleteButton ' + i
+        todoLi.id = i
         todoLi.appendChild(view.createDeleteButton())
         todosId.appendChild(todoLi)
       })
@@ -101,6 +99,13 @@ const view = {
   }
 }
 
+todoUl = document.getElementById('todoList')
+todoUl.addEventListener('click', function(event) {
+  const elementClicked = event.target
 
+  if (elementClicked.className === 'deleteButton') {
+    handlers.deleteTodo(parseInt(elementClicked.parentNode.id))
+  }
+})
 
 
